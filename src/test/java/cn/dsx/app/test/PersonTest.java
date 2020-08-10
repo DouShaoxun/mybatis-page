@@ -4,6 +4,7 @@ import cn.dsx.app.mapper.PersonMapper;
 import cn.dsx.app.pojo.Person;
 import cn.hutool.core.lang.Snowflake;
 import cn.hutool.core.util.IdUtil;
+import org.apache.ibatis.session.RowBounds;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -43,4 +44,10 @@ public class PersonTest {
         people.forEach(System.out::println);
     }
 
+    @Test
+    void contextLoadsRowBounds() {
+        List<Person> people = personMapper.selectByRowBounds(new RowBounds(0, 30));
+        System.out.println(people.size());
+        people.forEach(System.out::println);
+    }
 }

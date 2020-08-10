@@ -16,7 +16,11 @@
             limit #{pageIndex},#{pageNumber}
         </if>
     </select>
-
+    <select id="selectByRowBounds" resultMap="BaseResultMap" >
+        select
+        <include refid="Base_Column_List"/>
+        from person
+    </select>
     <insert id="insert" parameterType="cn.dsx.app.pojo.Person">
     insert into person (id, name)
     values ( #{id,jdbcType=VARCHAR},  #{name,jdbcType=VARCHAR})

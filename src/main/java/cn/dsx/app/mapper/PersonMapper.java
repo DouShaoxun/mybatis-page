@@ -3,6 +3,7 @@ package cn.dsx.app.mapper;
 import cn.dsx.app.pojo.Person;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -17,6 +18,6 @@ import java.util.List;
 public interface PersonMapper {
     List<Person> selectByPage(@Param("pageIndex") Long pageIndex,
                               @Param("pageNumber") Long pageNumber);
-
+    List<Person> selectByRowBounds(RowBounds rowBounds);
     int insert(Person person);
 }
