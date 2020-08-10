@@ -15,8 +15,10 @@ import java.util.List;
 @Mapper
 @Repository
 public interface PersonMapper {
+
     List<Person> selectByPage(@Param("pageIndex") Long pageIndex,
                               @Param("pageNumber") Long pageNumber);
+    List<Person> selectByPageHelper();
 
     int insert(Person person);
 }
