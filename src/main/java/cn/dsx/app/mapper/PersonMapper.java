@@ -20,5 +20,9 @@ public interface PersonMapper {
                               @Param("pageNumber") Long pageNumber);
     List<Person> selectByPageHelper();
 
+    List<Person> selectByName1(@Param("name") String name);
+
+    List<Person> selectByName2(@Param("name") String name);
+
     int insert(Person person);
 }

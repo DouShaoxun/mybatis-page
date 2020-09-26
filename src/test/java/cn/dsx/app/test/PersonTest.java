@@ -57,4 +57,17 @@ public class PersonTest {
         System.out.println("=============");
         people.forEach(System.out::println);
     }
+
+
+    @Test
+    void contextSQL() {
+        // 防止sql注入
+        String name = "77 or 1=1";
+        List<Person> people1 = personMapper.selectByName1(name);
+        System.out.println(people1.size());
+
+        List<Person> people2 = personMapper.selectByName2(name);
+        System.out.println(people2.size());
+    }
+
 }
